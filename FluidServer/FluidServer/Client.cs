@@ -20,6 +20,13 @@ namespace FluidServer
         {
             connected = true;
             client = _client;
+            NetworkStream stream = client.GetStream();
+            byte[] dat = new byte[4];
+            dat[0] = 0;
+            dat[1] = 1;
+            dat[2] = 2;
+            dat[3] = 3;
+            stream.Write(dat, 0, 4);
         }
     }
 }

@@ -22,40 +22,19 @@ namespace FluidServer
         static void onConnect(IAsyncResult result)
         {
             TcpClient client = listener.EndAcceptTcpClient(result);
-            bool success = false;
+            listener.BeginAcceptTcpClient(new AsyncCallback(onConnect), null);
             for(int i = 0; i < 2; i++)
             {
                 if (clients[i].connected == false)
                 {
                     clients[i].connect(client);
-                    success = true;
-                    break;
+                    Console.WriteLine("Client connected");
+                    return;
                 }
             }
-            if (success)
-            {
-                Console.WriteLine("Client connected");
-                NetworkStream stream = client.GetStream();
-                byte[] dat = new byte[4];
-                dat[0] = 0;
-                dat[1] = 1;
-                dat[2] = 2;
-                dat[3] = 3;
-                stream.Write(dat, 0, 4);
-            }
-            else
-            {
-                Console.WriteLine("Full");
-                NetworkStream stream = client.GetStream();
-                byte[] dat = new byte[4];
-                dat[0] = 0;
-                dat[1] = 1;
-                dat[2] = 2;
-                dat[3] = 3;
-                stream.Write(dat, 0, 4);
-            }
+            Console.WriteLine("Full");
 
-            listener.BeginAcceptTcpClient(new AsyncCallback(onConnect), null);
+
         }
         static void init()
         {
