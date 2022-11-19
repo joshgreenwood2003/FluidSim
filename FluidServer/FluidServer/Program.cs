@@ -11,6 +11,7 @@ namespace FluidServer
             Console.Title = "Game Server";
             Console.WriteLine("Starting server on port {0}", port);
             Server.Start(6969);
+            Console.ReadLine();
         }
     }
 }

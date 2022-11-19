@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshg\\Desktop\\FluidServer\\FluidServer\\FluidServer.csproj",
+      "projectUniqueName": "C:\\Users\\joshg\\Desktop\\FluidSim\\FluidServer\\FluidServer\\FluidServer.csproj",
       "projectName": "FluidServer",
-      "projectPath": "C:\\Users\\joshg\\Desktop\\FluidServer\\FluidServer\\FluidServer.csproj",
+      "projectPath": "C:\\Users\\joshg\\Desktop\\FluidSim\\FluidServer\\FluidServer\\FluidServer.csproj",
       "packagesPath": "C:\\Users\\joshg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshg\\Desktop\\FluidServer\\FluidServer\\obj\\",
+      "outputPath": "C:\\Users\\joshg\\Desktop\\FluidSim\\FluidServer\\FluidServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
