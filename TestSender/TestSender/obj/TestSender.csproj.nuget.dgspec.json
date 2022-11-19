@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joshg\\Desktop\\TestSender\\TestSender\\TestSender.csproj": {}
+    "C:\\Users\\joshg\\Desktop\\FluidSim\\TestSender\\TestSender\\TestSender.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joshg\\Desktop\\TestSender\\TestSender\\TestSender.csproj": {
+    "C:\\Users\\joshg\\Desktop\\FluidSim\\TestSender\\TestSender\\TestSender.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joshg\\Desktop\\TestSender\\TestSender\\TestSender.csproj",
+        "projectUniqueName": "C:\\Users\\joshg\\Desktop\\FluidSim\\TestSender\\TestSender\\TestSender.csproj",
         "projectName": "TestSender",
-        "projectPath": "C:\\Users\\joshg\\Desktop\\TestSender\\TestSender\\TestSender.csproj",
+        "projectPath": "C:\\Users\\joshg\\Desktop\\FluidSim\\TestSender\\TestSender\\TestSender.csproj",
         "packagesPath": "C:\\Users\\joshg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joshg\\Desktop\\TestSender\\TestSender\\obj\\",
+        "outputPath": "C:\\Users\\joshg\\Desktop\\FluidSim\\TestSender\\TestSender\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -9,6 +9,8 @@ namespace FluidServer
     {
         public static TcpListener listener;
         public static Client[] clients = new Client[2];
+        NetworkStream stream;
+        
         public static void Start(int port)
         {
             init();
@@ -33,10 +35,24 @@ namespace FluidServer
             if (success)
             {
                 Console.WriteLine("Client connected");
+                NetworkStream stream = client.GetStream();
+                byte[] dat = new byte[4];
+                dat[0] = 0;
+                dat[1] = 1;
+                dat[2] = 2;
+                dat[3] = 3;
+                stream.Write(dat, 0, 4);
             }
             else
             {
                 Console.WriteLine("Full");
+                NetworkStream stream = client.GetStream();
+                byte[] dat = new byte[4];
+                dat[0] = 0;
+                dat[1] = 1;
+                dat[2] = 2;
+                dat[3] = 3;
+                stream.Write(dat, 0, 4);
             }
 
             listener.BeginAcceptTcpClient(new AsyncCallback(onConnect), null);
