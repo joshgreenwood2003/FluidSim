@@ -1,0 +1,14 @@
+C:\Users\joshg\source\repos\FluidServer\FluidServer\obj\Debug\netcoreapp3.1\FluidServer.csproj.AssemblyReference.cache
+C:\Users\joshg\source\repos\FluidServer\FluidServer\obj\Debug\netcoreapp3.1\FluidServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joshg\source\repos\FluidServer\FluidServer\obj\Debug\netcoreapp3.1\FluidServer.AssemblyInfoInputs.cache
+C:\Users\joshg\source\repos\FluidServer\FluidServer\obj\Debug\netcoreapp3.1\FluidServer.AssemblyInfo.cs
+C:\Users\joshg\source\repos\FluidServer\FluidServer\obj\Debug\netcoreapp3.1\FluidServer.csproj.CoreCompileInputs.cache
+C:\Users\joshg\source\repos\FluidServer\FluidServer\bin\Debug\netcoreapp3.1\FluidServer.exe
+C:\Users\joshg\source\repos\FluidServer\FluidServer\bin\Debug\netcoreapp3.1\FluidServer.deps.json
+C:\Users\joshg\source\repos\FluidServer\FluidServer\bin\Debug\netcoreapp3.1\FluidServer.runtimeconfig.json
+C:\Users\joshg\source\repos\FluidServer\FluidServer\bin\Debug\netcoreapp3.1\FluidServer.runtimeconfig.dev.json
+C:\Users\joshg\source\repos\FluidServer\FluidServer\bin\Debug\netcoreapp3.1\FluidServer.dll
+C:\Users\joshg\source\repos\FluidServer\FluidServer\bin\Debug\netcoreapp3.1\FluidServer.pdb
+C:\Users\joshg\source\repos\FluidServer\FluidServer\obj\Debug\netcoreapp3.1\FluidServer.dll
+C:\Users\joshg\source\repos\FluidServer\FluidServer\obj\Debug\netcoreapp3.1\FluidServer.pdb
+C:\Users\joshg\source\repos\FluidServer\FluidServer\obj\Debug\netcoreapp3.1\FluidServer.genruntimeconfig.cache
