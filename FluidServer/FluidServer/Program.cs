@@ -3,6 +3,11 @@ using System.Net;
 using System.Net.Sockets;
 namespace FluidServer
 {
+
+
+    //Initialise server console
+
+
     class Program
     {
         const int port = 6969;
@@ -12,6 +17,7 @@ namespace FluidServer
             Console.WriteLine("Starting server on port {0}", port);
             Server.Start(6969);
             Console.ReadLine();
+            Console.WriteLine("Should never get here");
         }
     }
 }
