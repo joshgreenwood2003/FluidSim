@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
+using TestSender;
+
 namespace FluidServer
 {
 
@@ -23,7 +26,7 @@ namespace FluidServer
             connected = true;
             client = _client;
             stream = client.GetStream();
-            stream.BeginRead(buffer, 0, 8, onRead, null);
+            stream.BeginRead(buffer, 0, 4, onRead, null);
             PacketSender.sendAcceptPacket(this, id);
         }
         public void disconnect(){
@@ -40,7 +43,30 @@ namespace FluidServer
             try
             {
                 stream.EndRead(result);
-                Console.WriteLine($"Server recieved data from client {id}");
+                byte[] sizeInBytes = new byte[4];
+                Buffer.BlockCopy(buffer, 0, sizeInBytes, 0, 4);
+
+                int packetsize = Converter.bytesToInt(sizeInBytes) - 5;
+                int packetID = (int)buffer[4];
+
+
+                if (packetsize == 0)
+                {
+                    if(packetID == 5)
+                    {
+                        Console.WriteLine($"Player {id} is ready");
+                        PacketSender.replicateReady(id);
+                    }
+                }
+                else
+                {
+                    byte[] data;
+                    stream.Read(buffer, 0, packetsize);
+                    data = new byte[packetsize];
+                    Buffer.BlockCopy(buffer, 0, data, 0, packetsize);
+                    Readhandler.Read(data, packetID,id);
+                }
+                stream.BeginRead(buffer, 0, 5, new AsyncCallback(onRead), null);
             }
             catch{
                 disconnect();
@@ -52,7 +78,16 @@ namespace FluidServer
         {
             if (connected)
             {
-                stream.Write(data, 0, data.Length);
+                try
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+                catch
+                {
+                    Console.WriteLine("Client disconnected");
+                    disconnect();
+                }
+
             }
         }
     }

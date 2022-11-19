@@ -9,12 +9,42 @@ namespace FluidServer
 
         public static void sendAcceptPacket(Client client,int id)
         {
-            byte[] data = { 0, 0, 0, 0, 0, 0, 0, 10, 0, (byte)id};
+            byte[] data = { 0, 0, 0, 6, 0, (byte)id};
             client.sendinfo(data);
         }
         public static void sendLevelInfo(int levelID)
         {
-            byte[] data = { 0, 0, 0, 0, 0, 0, 0, 10, 2,(byte)levelID};
+            byte[] data = {0, 0, 0, 6, 2,(byte)levelID};
+            Server.sendToAll(data);
+        }
+        public static void createPoint(int x1,int x2,int y1,int y2, int idExclude)
+        {
+            byte[] x1b = Converter.intToBytes(x1);
+            byte[] x2b = Converter.intToBytes(x2);
+            byte[] y1b = Converter.intToBytes(y1);
+            byte[] y2b = Converter.intToBytes(y2);
+            byte[] data = { 0, 0, 0, 21, 3, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0};
+            Buffer.BlockCopy(x1b, 0, data, 5, 4);
+            Buffer.BlockCopy(x2b, 0, data, 9, 4);
+            Buffer.BlockCopy(y1b, 0, data, 13, 4);
+            Buffer.BlockCopy(y2b, 0, data, 17, 4);
+            Server.sendToAllExcept(idExclude,data);
+        }
+        public static void levelEnd(int ballsInBucket)
+        {
+            byte[] ballsInBucketBytes = Converter.intToBytes(ballsInBucket);
+            byte[] data = {0,0,0,9,4,0,0,0,0};
+            Buffer.BlockCopy(ballsInBucketBytes, 0, data, 5, 4);
+            Server.sendToAll(data);
+        }
+        public static void replicateReady(int idExclude)
+        {
+            byte[] data = { 0, 0, 0, 5, 5 };
+            Server.sendToAllExcept(idExclude, data);
+        }
+        public static void startSim()
+        {
+            byte[] data = { 0, 0, 0, 5, 6 };
             Server.sendToAll(data);
         }
 

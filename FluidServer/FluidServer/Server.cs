@@ -36,6 +36,10 @@ namespace FluidServer
                     if(currentConnectedClients == 2)                               //what is wrong with me?? please fix
                     {
                         PacketSender.sendLevelInfo(201);
+                        //PacketSender.createPoint(1024,1024,1024,1024,0);
+                        //PacketSender.createPoint(1024,1024,1024,1024,1);
+                        //PacketSender.levelEnd(69696969);
+                        PacketSender.startSim();
                         Console.WriteLine("Now full");
                     }
                     return;
@@ -45,7 +49,7 @@ namespace FluidServer
             {
                 Console.WriteLine("Connection attempted but full");
                 NetworkStream stream = client.GetStream();  
-                byte[] data = { 0, 0, 0, 0, 0, 0, 0, 9,1}; //write a connection failed packet
+                byte[] data = {0, 0, 0, 5,1}; //write a connection failed packet
                 stream.Write(data,0,9);
             }
             catch
@@ -65,6 +69,17 @@ namespace FluidServer
             foreach (Client client in clients)
             {
                 client.sendinfo(data);
+            }
+        }
+        public static void sendToAllExcept(int id, byte[] data)
+        {
+            foreach (Client client in clients)
+            {
+                if (client.id != id)
+                {
+                    client.sendinfo(data);
+                }
+
             }
         }
     }
