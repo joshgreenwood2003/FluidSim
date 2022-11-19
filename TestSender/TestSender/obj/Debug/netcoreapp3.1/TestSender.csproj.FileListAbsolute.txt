@@ -1,0 +1,13 @@
+C:\Users\joshg\Desktop\TestSender\TestSender\bin\Debug\netcoreapp3.1\TestSender.exe
+C:\Users\joshg\Desktop\TestSender\TestSender\bin\Debug\netcoreapp3.1\TestSender.deps.json
+C:\Users\joshg\Desktop\TestSender\TestSender\bin\Debug\netcoreapp3.1\TestSender.runtimeconfig.json
+C:\Users\joshg\Desktop\TestSender\TestSender\bin\Debug\netcoreapp3.1\TestSender.runtimeconfig.dev.json
+C:\Users\joshg\Desktop\TestSender\TestSender\bin\Debug\netcoreapp3.1\TestSender.dll
+C:\Users\joshg\Desktop\TestSender\TestSender\bin\Debug\netcoreapp3.1\TestSender.pdb
+C:\Users\joshg\Desktop\TestSender\TestSender\obj\Debug\netcoreapp3.1\TestSender.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joshg\Desktop\TestSender\TestSender\obj\Debug\netcoreapp3.1\TestSender.AssemblyInfoInputs.cache
+C:\Users\joshg\Desktop\TestSender\TestSender\obj\Debug\netcoreapp3.1\TestSender.AssemblyInfo.cs
+C:\Users\joshg\Desktop\TestSender\TestSender\obj\Debug\netcoreapp3.1\TestSender.csproj.CoreCompileInputs.cache
+C:\Users\joshg\Desktop\TestSender\TestSender\obj\Debug\netcoreapp3.1\TestSender.dll
+C:\Users\joshg\Desktop\TestSender\TestSender\obj\Debug\netcoreapp3.1\TestSender.pdb
+C:\Users\joshg\Desktop\TestSender\TestSender\obj\Debug\netcoreapp3.1\TestSender.genruntimeconfig.cache
