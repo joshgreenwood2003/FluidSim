@@ -8,7 +8,7 @@ namespace TestSender
     {
         static void Main(string[] args)
         {
-            TcpClient client = new TcpClient("localhost", 6969);
+            TcpClient client = new TcpClient("10.247.31.69", 6969);
             Console.ReadLine();
 
         }
