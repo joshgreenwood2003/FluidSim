@@ -33,8 +33,6 @@ namespace FluidServer
                 }
             }
             Console.WriteLine("Full");
-
-
         }
         static void init()
         {

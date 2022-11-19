@@ -28,5 +28,9 @@ namespace FluidServer
             dat[3] = 3;
             stream.Write(dat, 0, 4);
         }
+        public void disconnect(){
+            client = null;
+            connected = false;
+        }
     }
 }

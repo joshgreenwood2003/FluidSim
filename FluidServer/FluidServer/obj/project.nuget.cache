@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7lKti0Pzzb1BFp6ZgyCB1IWebH6v9VuaCJlFegbJHpj7AaStk2VZ1f9W7c7CRseqjdI1/UkotiV5x00SWpHaQA==",
+  "dgSpecHash": "tQ2FE06QLBvJzBZaWhjZ8hIsRVkGHD5E9U2IwWirk9tycttwQUpvNEQqR40tEWl9tf8MPZAjUP64VNDQJDYsKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\joshg\\Desktop\\FluidSim\\FluidServer\\FluidServer\\FluidServer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\joshg\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.31\\microsoft.netcore.app.host.win-x64.3.1.31.nupkg.sha512"
+  ],
   "logs": []
 }
