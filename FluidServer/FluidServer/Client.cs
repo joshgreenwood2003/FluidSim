@@ -11,6 +11,7 @@ namespace FluidServer
         public TcpClient client;
         public bool connected;
         public int id;
+        public NetworkStream stream;
         public Client(int _id)
         {
             id = _id;
@@ -20,15 +21,12 @@ namespace FluidServer
         {
             connected = true;
             client = _client;
-            NetworkStream stream = client.GetStream();
-            byte[] dat = new byte[4];
-            dat[0] = 0;
-            dat[1] = 1;
-            dat[2] = 2;
-            dat[3] = 3;
+            stream = client.GetStream();
+            byte[] dat = {0,1,2,3};
             stream.Write(dat, 0, 4);
         }
         public void disconnect(){
+            client.Close();
             client = null;
             connected = false;
         }

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "60S1yDgY4Ltnpubk8egi+BkR2BnK8WlTjal0XxyGkfet2px46YIycPUPU5h+Ge/XntHZXneuxXpksVn/drWEDg==",
+  "dgSpecHash": "sPCoKJ0vu9fnBzD7dqQe5P6l9MYsIpFifBB3BL0SSAKGmRt7bNRqNt40GTj/pojAw6WcLClbf7QOxCy1KOakuA==",
   "success": true,
   "projectFilePath": "C:\\Users\\joshg\\Desktop\\FluidSim\\TestSender\\TestSender\\TestSender.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\joshg\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.31\\microsoft.netcore.app.host.win-x64.3.1.31.nupkg.sha512"
+  ],
   "logs": []
 }

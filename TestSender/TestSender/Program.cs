@@ -21,7 +21,10 @@ namespace TestSender
         }
         static void OnRead(IAsyncResult result)
         {
+            Console.WriteLine(buffer[0]);
             Console.WriteLine(buffer[1]);
+            Console.WriteLine(buffer[2]);
+            Console.WriteLine(buffer[3]);
         }
     }
 }
