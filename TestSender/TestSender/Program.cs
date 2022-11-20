@@ -20,6 +20,7 @@ namespace TestSender
             {
                 Console.WriteLine("Failed to connect");
             }
+            //BEGIN DEBUG
             while (true)
             {
                 Console.WriteLine("Send a packet(enter first)");
@@ -28,13 +29,13 @@ namespace TestSender
                 if (packetnum == 3) //draw beam
                 {
                     Console.WriteLine("Write x1");
-                    int x1 = Convert.ToInt32(Console.ReadLine());
+                    double x1 = Convert.ToDouble(Console.ReadLine());
                     Console.WriteLine("Write y1");
-                    int y1 = Convert.ToInt32(Console.ReadLine());
+                    double y1 = Convert.ToDouble(Console.ReadLine());
                     Console.WriteLine("Write x2");
-                    int x2 = Convert.ToInt32(Console.ReadLine());
+                    double x2 = Convert.ToDouble(Console.ReadLine());
                     Console.WriteLine("Write y2");
-                    int y2 = Convert.ToInt32(Console.ReadLine());
+                    double y2 = Convert.ToDouble(Console.ReadLine());
                     SendHandler.sendDraw(x1, y1, x2, y2);
                 }
                 else if (packetnum == 4) //level end, send num of balls
@@ -48,8 +49,7 @@ namespace TestSender
                     SendHandler.playerReady();
                 }
             }
-            
-            Console.ReadLine();
+            //END DEBUG
         }
         static void OnRead(IAsyncResult result)
         {
@@ -69,11 +69,11 @@ namespace TestSender
             {
                 if (packetID == 1)
                 {
-                    Console.WriteLine("Was rejected");
+                    Console.WriteLine("Was rejected"); //SEND REJECT MESSAGE TO USER
                 }
                 else if (packetID == 6)
                 {
-                    Console.WriteLine("Start simulation now!");
+                    Console.WriteLine("Start simulation now!"); //DROP BALLS
                 }
             }
             else
@@ -88,10 +88,10 @@ namespace TestSender
         }
         public static void SendData(byte[] data)
         {
-            for(int i = 0;i< data.Length; i++)
-            {
-                Console.WriteLine(data[i]);
-            }
+           // for(int i = 0;i< data.Length; i++)   //DEBUG
+            //{
+             //   Console.WriteLine(data[i]);
+          //  }
             stream.Write(data,0,data.Length);
         }
   

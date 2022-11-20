@@ -37,7 +37,7 @@ namespace FluidServer
                     if(currentConnectedClients == 2)                               //what is wrong with me?? please fix
                     {
                         StartRound();
-                        Console.WriteLine("Now full");
+                        Console.WriteLine("Server is full. Start first round");
                     }
                     return;
                 }
