@@ -35,7 +35,11 @@ namespace TestSender
                 PacketSender.levelEnd(numballs);
                 Server.StartRound();
             }
-
+            else if(packetID == 7)
+            {
+                string errmsg = System.Text.Encoding.UTF8.GetString(data);
+                Console.WriteLine(errmsg);
+            }
         }
     }
 }
