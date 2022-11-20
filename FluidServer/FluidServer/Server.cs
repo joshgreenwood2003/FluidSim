@@ -33,8 +33,8 @@ namespace FluidServer
                 {
                     clients[i].connect(client);
                     currentConnectedClients++;
-                    Console.WriteLine("Client connected");  //this method of finding if server is full is fucking stupid
-                    if(currentConnectedClients == 2)                               //what is wrong with me?? please fix
+                    Console.WriteLine("Client connected"); 
+                    if(currentConnectedClients == 2)                               
                     {
                         StartRound();
                         Console.WriteLine("Server is full. Start first round");

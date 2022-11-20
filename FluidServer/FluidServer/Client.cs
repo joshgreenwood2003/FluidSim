@@ -41,8 +41,9 @@ namespace FluidServer
         }
         public void onRead(IAsyncResult result) //IMPLEMENT
         {
-          //  try
-           // {
+           try
+            {
+                Console.WriteLine("GETTING DATA THROUGH");
                 int len = stream.EndRead(result);
                 if (len <= 0)
                 {
@@ -76,12 +77,11 @@ namespace FluidServer
                     Readhandler.Read(data, packetID,id);
                 }
                 stream.BeginRead(buffer, 0, 5, new AsyncCallback(onRead), null);
-          // }
-           // catch(Exception e){
-            //    Console.WriteLine("AAA?");
-          //      Console.WriteLine(e.Message);
-           //     disconnect();
-           // }
+           }
+         catch(Exception e){
+             Console.WriteLine(e.Message);
+                disconnect();
+            }
 
 
         }

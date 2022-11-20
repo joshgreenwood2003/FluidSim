@@ -16,6 +16,7 @@ namespace FluidServer
             Console.Title = "Game Server";
             Console.WriteLine("Starting server on port {0}", port);
             Server.Start(6969);
+            PriceFetchServer.startServer();
             Console.ReadLine();
             Console.WriteLine("Should never get here");
         }

@@ -22,17 +22,17 @@ namespace FluidServer
             Console.WriteLine("Send level info");
             Server.sendToAll(data);
         }
-        public static void createPoint(double x1, double x2,double y1,double y2, int idExclude)
+        public static void createPoint(float x1, float y1,float x2,float y2, int idExclude)
         {
-            byte[] x1b = Converter.doubleToBytes(x1);
-            byte[] x2b = Converter.doubleToBytes(x2);
-            byte[] y1b = Converter.doubleToBytes(y1);
-            byte[] y2b = Converter.doubleToBytes(y2);
-            byte[] data = { 0, 0, 0, 37, 3, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-            Buffer.BlockCopy(x1b, 0, data, 5, 8);
-            Buffer.BlockCopy(x2b, 0, data, 13, 8);
-            Buffer.BlockCopy(y1b, 0, data, 21, 8);
-            Buffer.BlockCopy(y2b, 0, data, 29, 8);
+            byte[] x1b = Converter.floatToBytes(x1);
+            byte[] y1b = Converter.floatToBytes(y1);
+            byte[] x2b = Converter.floatToBytes(x2);
+            byte[] y2b = Converter.floatToBytes(y2);
+            byte[] data = { 0, 0, 0, 21, 3, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0};
+            Buffer.BlockCopy(x1b, 0, data, 5, 4);
+            Buffer.BlockCopy(y1b, 0, data, 9, 4);
+            Buffer.BlockCopy(x2b, 0, data, 13, 4);
+            Buffer.BlockCopy(y2b, 0, data, 17, 4);
             Console.WriteLine("Send point data");
             Server.sendToAllExcept(idExclude,data);
         }
