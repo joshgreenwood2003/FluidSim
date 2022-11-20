@@ -26,13 +26,14 @@ namespace FluidServer
             connected = true;
             client = _client;
             stream = client.GetStream();
-            stream.BeginRead(buffer, 0, 4, onRead, null);
+            stream.BeginRead(buffer, 0, 5, onRead, null);
             PacketSender.sendAcceptPacket(this, id);
         }
         public void disconnect(){
             Server.currentConnectedClients--;
             Console.WriteLine($"Client {id} disconnected");
             connected = false;
+            Server.readystatus[id] = false;
             client.Close();
             client = null;
             stream = null;
@@ -40,15 +41,22 @@ namespace FluidServer
         }
         public void onRead(IAsyncResult result) //IMPLEMENT
         {
-            try
-            {
-                stream.EndRead(result);
+          //  try
+           // {
+                int len = stream.EndRead(result);
+                if (len <= 0)
+                {
+                    disconnect();
+                    return;
+                }
+
                 byte[] sizeInBytes = new byte[4];
                 Buffer.BlockCopy(buffer, 0, sizeInBytes, 0, 4);
 
                 int packetsize = Converter.bytesToInt(sizeInBytes) - 5;
                 int packetID = (int)buffer[4];
-
+                Console.WriteLine(packetID);
+                Console.WriteLine(packetsize);
 
                 if (packetsize == 0)
                 {
@@ -56,6 +64,7 @@ namespace FluidServer
                     {
                         Console.WriteLine($"Player {id} is ready");
                         PacketSender.replicateReady(id);
+                         Server.SetReadyState(id);
                     }
                 }
                 else
@@ -67,10 +76,12 @@ namespace FluidServer
                     Readhandler.Read(data, packetID,id);
                 }
                 stream.BeginRead(buffer, 0, 5, new AsyncCallback(onRead), null);
-            }
-            catch{
-                disconnect();
-            }
+          // }
+           // catch(Exception e){
+            //    Console.WriteLine("AAA?");
+          //      Console.WriteLine(e.Message);
+           //     disconnect();
+           // }
 
 
         }
@@ -78,12 +89,19 @@ namespace FluidServer
         {
             if (connected)
             {
+                Console.WriteLine("SENDING SOMETHING");
+                for (int i = 0; i < data.Length; i++)
+                {
+                    Console.Write(data[i]);
+                }
+                Console.WriteLine("\n");
                 try
                 {
                     stream.Write(data, 0, data.Length);
                 }
-                catch
+                catch(Exception e)
                 {
+                    Console.WriteLine(e.Message);
                     Console.WriteLine("Client disconnected");
                     disconnect();
                 }

@@ -31,7 +31,7 @@ namespace TestSender
                 int numballs = Converter.bytesToInt(data);
                 Console.WriteLine($"Client sent game is done, a total of {numballs} balls were dropped");
                 PacketSender.levelEnd(numballs);
-                PacketSender.sendLevelInfo(500);
+                Server.StartRound();
             }
 
         }

@@ -7,14 +7,16 @@ namespace TestSender
     {
         public static void Read(byte[] data, int packetID)
         {
-            Console.WriteLine(packetID);
+            Console.WriteLine("???");
             if (packetID == 0)
             {
                 Console.WriteLine($"Was accepted with id {(int)data[0]}");
             }
             else if (packetID == 2)
             {
-                Console.WriteLine($"Sent game data, draw level number {(int)data[0]}");
+                int lvlnum = Converter.bytesToInt(data);
+
+                Console.WriteLine($"Game loaded, draw level number {lvlnum}");
             }
             else if (packetID == 3)
             {

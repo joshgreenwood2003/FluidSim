@@ -22,6 +22,7 @@ namespace FluidServer
             Console.WriteLine("Server started at {0}", port);
             listener.BeginAcceptTcpClient(new AsyncCallback(onConnect), null);
         }
+        public static bool[] readystatus = new bool[2];
         static void onConnect(IAsyncResult result)
         {
             TcpClient client = listener.EndAcceptTcpClient(result);
@@ -35,11 +36,7 @@ namespace FluidServer
                     Console.WriteLine("Client connected");  //this method of finding if server is full is fucking stupid
                     if(currentConnectedClients == 2)                               //what is wrong with me?? please fix
                     {
-                        PacketSender.sendLevelInfo(201);
-                        //PacketSender.createPoint(1024,1024,1024,1024,0);
-                        //PacketSender.createPoint(1024,1024,1024,1024,1);
-                        //PacketSender.levelEnd(69696969);
-                        PacketSender.startSim();
+                        StartRound();
                         Console.WriteLine("Now full");
                     }
                     return;
@@ -62,6 +59,8 @@ namespace FluidServer
         {
             clients[0] = new Client(0);
             clients[1] = new Client(1);
+            readystatus[0] = false;
+            readystatus[1] = false;
         }
 
         public static void sendToAll(byte[] data)
@@ -80,6 +79,21 @@ namespace FluidServer
                     client.sendinfo(data);
                 }
 
+            }
+        }
+        public static void StartRound()
+        {
+            PacketSender.sendLevelInfo(201);//random level
+            readystatus[0] = false;
+            readystatus[1] = false;
+        }
+        public static void SetReadyState(int playerID)
+        {
+
+            readystatus[playerID] = true;
+            if (readystatus[0] && readystatus[1])
+            {
+                PacketSender.startSim();
             }
         }
     }
