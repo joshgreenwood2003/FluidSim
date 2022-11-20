@@ -45,6 +45,7 @@ namespace FluidServer
             {
                 Console.WriteLine("GETTING DATA THROUGH");
                 int len = stream.EndRead(result);
+                Console.WriteLine(len);
                 if (len <= 0)
                 {
                     disconnect();
